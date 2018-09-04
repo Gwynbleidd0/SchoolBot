@@ -4,7 +4,7 @@ import telebot
 from telebot import apihelper
 from telebot import types
 
-apihelper.proxy = {'https':'https://77.252.133.48:25772'}
+#apihelper.proxy = {'https':'https://77.252.133.48:25772'}
 bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(commands=["get"])
