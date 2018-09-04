@@ -4,7 +4,7 @@ import telebot
 from telebot import apihelper
 from telebot import types
 
-apihelper.proxy = {'https':'https://109.104.144.46:80'}
+#apihelper.proxy = {'https':'https://109.104.144.46:80'}
 bot = telebot.TeleBot(config.token)
 markup_start = types.ReplyKeyboardMarkup()
 markup_start.row('Получить расписание')
