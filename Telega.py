@@ -1,6 +1,7 @@
 import botT
 import config
 import telebot
+from SQLighter import SQLighter
 from telebot import apihelper
 from telebot import types
 
@@ -14,7 +15,8 @@ def search_fille():
         fille = botT.get_lastfille()
     return(fille)
 
-apihelper.proxy = {'https':'https://195.77.247.139:50591'}
+db_worker=SQLighter('DB.db')
+#apihelper.proxy = {'https':'https://185.190.176.100:39891'}
 bot = telebot.TeleBot(config.token)
 markup_start = types.ReplyKeyboardMarkup()
 markup_start.row('Получить расписание')
@@ -22,6 +24,7 @@ markup_start.row('Инфо, так сказать')
 last_fille='5 сентября. 1 смена.xls'
 @bot.message_handler(commands=["start"])
 def random_messages(message):
+    db_worker.add_user_inf(message.from_user.username)
     bot.send_message(message.chat.id,"Это первая версия бота для 11А",reply_markup=markup_start)
 @bot.message_handler(content_types=["text"])
 def get_raspisanie(message):
