@@ -16,10 +16,10 @@ def search_fille():
     return(fille)
 
 db_worker=SQLighter('DB.db')
-#apihelper.proxy = {'https':'https://185.190.176.100:39891'}
+apihelper.proxy = {'https':'https://203.153.216.188:31572'}
 bot = telebot.TeleBot(config.token)
 markup_start = types.ReplyKeyboardMarkup()
-markup_start.row('Получить расписание')
+markup_start.row('11а','11в')
 markup_start.row('Инфо, так сказать')
 last_fille='5 сентября. 1 смена.xls'
 @bot.message_handler(commands=["start"])
@@ -28,9 +28,13 @@ def random_messages(message):
     bot.send_message(message.chat.id,"Это первая версия бота для 11А",reply_markup=markup_start)
 @bot.message_handler(content_types=["text"])
 def get_raspisanie(message):
-    if message.text=='Получить расписание':
-        search_fille()
-        alfa = botT.get_book(search_fille())
+    if message.text=='11а':
+        botT.get_timetable()
+        alfa = botT.get_book('11а')
+        bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
+    if message.text=='11в':
+        botT.get_timetable()
+        alfa = botT.get_book('11в')
         bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
     if message.text=='Инфо, так сказать':
         bot.send_message(message.chat.id,'v1.3\nВсе права принадлежат тому, кому принадлежат.\nВидеоблог скоро!',reply_markup=markup_start)

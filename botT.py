@@ -16,7 +16,7 @@ def get_timetable():
             files = [f for f in os.listdir('.') if f.endswith('.xls')]
             print(files)
             os.remove(files[0])
-            with open(fille, "wb") as code:
+            with open('base.xls', "wb") as code:
                 code.write(r.content)
                 t1=True
                 break
@@ -25,8 +25,8 @@ def get_timetable():
         return(t1,fille)
     if t1==True:
         return(t1,fille)
-def get_book(fille):
-    rb =xlrd.open_workbook(fille)
+def get_book(class_number):
+    rb =xlrd.open_workbook('base.xls')
     sheet = rb.sheet_by_index(0)
     #val = sheet.row_values(6)[85]
     print(sheet.ncols)
@@ -34,7 +34,7 @@ def get_book(fille):
 
     i=0
     while i<sheet.ncols:
-        if sheet.row_values(2)[i] == '11а':
+        if sheet.row_values(2)[i] == class_number:
             rownum = i
 
             break
@@ -42,18 +42,19 @@ def get_book(fille):
     print(rownum)
     f=3
     result=[]
+
     while f<sheet.nrows:
-        if sheet.row_values(f)[rownum]!='':
-            result.append(sheet.row_values(f)[rownum])
-        else:
-            break;
+        result.append(sheet.row_values(f)[rownum])
         f=f+2
     print(result)
+#    while 
     lessons=len(result)
     print(lessons)
     result_string=''
     s=0
     while s<lessons:
+        if result[s]=='':
+            result[s]='---------'
         result_string=result_string+result[s]+'\n'
         s=s+1
     return(result_string)
@@ -70,4 +71,12 @@ i=0
 while i<len(files):    
     os.path.getmtime(files[i])
     i=i+1"""
+"""  
+    while f<sheet.nrows:
+        if sheet.row_values(f)[rownum]!='':
+            result.append(sheet.row_values(f)[rownum])
+        elif sheet.row_values(f+1)[rownum]!='':
+            break;
+        f=f+2
+""" 
 
