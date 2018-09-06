@@ -16,7 +16,7 @@ def search_fille():
     return(fille)
 
 db_worker=SQLighter('DB.db')
-apihelper.proxy = {'https':'https://203.153.216.188:31572'}
+#apihelper.proxy = {'https':'https://203.153.216.188:31572'}
 bot = telebot.TeleBot(config.token)
 markup_start = types.ReplyKeyboardMarkup()
 markup_start.row('11а','11в')
