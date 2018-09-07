@@ -41,8 +41,8 @@ def get_name_file():
         dowd_link_ready.append(day_mounth_2+dowd_link[i])
         i=i+1
 #    print(dowd_link_ready)
-    dowd_link_ready.append(day_mounth_1)
-    dowd_link_ready.append(day_mounth_2)
+    dowd_link_ready.append(day_mounth_1+'.xls')
+    dowd_link_ready.append(day_mounth_2+'.xls')
     return(dowd_link_ready)
 def get_date():
     date=datetime.now().date().strftime("%d%m%y")
