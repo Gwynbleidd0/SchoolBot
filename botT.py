@@ -1,6 +1,5 @@
 import requests
 import xlrd
-import xlwt
 import fille
 import os
 def get_timetable():
