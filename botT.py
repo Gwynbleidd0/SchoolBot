@@ -1,5 +1,6 @@
 import requests
 import xlrd
+import xlwt
 import fille
 import os
 def get_timetable():
@@ -10,21 +11,20 @@ def get_timetable():
     t1=False
     g=0
     while g<count_var:
-        fille = file_name_list[g]
-        r = requests.get(dirfile+fille)
+        fille0 = file_name_list[g]
+        r = requests.get(dirfile+fille0)
         if r.ok==True:
-            files = [f for f in os.listdir('.') if f.endswith('.xls')]
-            print(files)
-            os.remove(files[0])
             with open('base.xls', "wb") as code:
                 code.write(r.content)
                 t1=True
                 break
         g=g+1
     if t1==False:
-        return(t1,fille)
+        data = ''
+        return(t1,data)
     if t1==True:
-        return(t1,fille)
+        data = fille.get_date()
+        return(t1,data)
 def get_book(class_number):
     rb =xlrd.open_workbook('base.xls')
     sheet = rb.sheet_by_index(0)
@@ -64,7 +64,9 @@ def get_lastfille():
     files = [f for f in os.listdir('.') if f.endswith('.xls')]
     fille=files[0]
     return(fille)
+#def check_updates():
 
+    
 """
 print(os.path.getmtime(files[0]))
 i=0
