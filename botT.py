@@ -24,6 +24,22 @@ def get_timetable():
     if t1==True:
         data = fille.get_date()
         return(t1,data)
+def get_timetable2():
+    import parcer
+    import fille
+    t1=False
+    res=parcer.get_url()
+    r = requests.get(res[0])
+    if r.ok==True:
+         with open('base.xls', "wb") as code:
+             code.write(r.content)
+             t1=True
+    if t1==False:
+        data = ''
+        return(t1,data)
+    if t1==True:
+        data = fille.get_date()
+        return(t1,data)
 def get_book(class_number):
     rb =xlrd.open_workbook('base.xls')
     sheet = rb.sheet_by_index(0)

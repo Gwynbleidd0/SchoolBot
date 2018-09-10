@@ -77,5 +77,7 @@ def get_date():
     day_mounth_1=str(day)+' '+mount
     date=day_mounth_1
     return(date)
-
-
+def get_real_date():
+    ll = (datetime.now()+timedelta(days=1)).strftime("%d%m%y")
+    day = int(ll[0]+ll[1])
+    return(day)

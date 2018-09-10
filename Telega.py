@@ -40,21 +40,21 @@ def get_raspisanie(message):
     if message.text=='11а':
         date_real=fille.get_date()
         if date_real != date:
-            reslist = botT.get_timetable()
+            reslist = botT.get_timetable2()
             date=reslist[1]
         alfa = botT.get_book('11а')
         bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
     if message.text=='11б':
         date_real=fille.get_date()
         if date_real != date:
-            reslist = botT.get_timetable()
+            reslist = botT.get_timetable2()
             date=reslist[1]
         alfa = botT.get_book('11б')
         bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
     if message.text=='11в':
         date_real=fille.get_date()
         if date_real != date:
-            reslist = botT.get_timetable()
+            reslist = botT.get_timetable2()
             date=reslist[1]
         alfa = botT.get_book('11в')
         bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
