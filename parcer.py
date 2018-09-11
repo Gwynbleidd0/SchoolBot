@@ -15,17 +15,21 @@ def get_url():
         g=1
         f=r.html.find('.at_icon')[i].attrs
         f=f.get('href')
-#        print(f)
+        print(f)
         result=f.find('1 смена')
 #    res=f.find(date)
         if result!=-1:
             hg.append(f)
+        else:
+            result=f.find('1_смена')
+            if result!=-1:
+                hg.append(f)
 #    while g<len(f.get('href'):
 #    print(result)
 #    hg.append(f.get('href'))
         i=i+1
     return(hg)
-print(get_url())
+#print(get_url())
 
 
 #print(Selector(r.text).css('.at_icon').extract())

@@ -59,7 +59,7 @@ def get_raspisanie(message):
         alfa = botT.get_book('11в')
         bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
     if message.text=='Инфо, так сказать':
-        bot.send_message(message.chat.id,'v1.3\nВсе права принадлежат тому, кому принадлежат.\nЧто пишет на доске гуманитарий, когда его вызывают на задачу по физике?\n Не дано',reply_markup=markup_start)
+        bot.send_message(message.chat.id,'v1.4\nВсе права принадлежат тому, кому принадлежат.\nЧто пишет на доске гуманитарий, когда его вызывают на задачу по физике?\n Не дано',reply_markup=markup_start)
 
 if __name__ == '__main__':
 		bot.polling(none_stop=True)
