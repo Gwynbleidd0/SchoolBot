@@ -17,7 +17,7 @@ from telebot import types
     return(fille)
 """
 db_worker=SQLighter('DB.db')
-apihelper.proxy = {'https':'https://96.252.117.163:31864'}
+#apihelper.proxy = {'https':'https://96.252.117.163:31864'}
 bot = telebot.TeleBot(config.token)
 markup_start = types.ReplyKeyboardMarkup()
 markup_start.row('11а','11б','11в')
