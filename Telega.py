@@ -17,7 +17,7 @@ from telebot import types
     return(fille)
 """
 db_worker=SQLighter('DB.db')
-#apihelper.proxy = {'https':'https://212.18.223.228:36718'}
+apihelper.proxy = {'https':'https://96.252.117.163:31864'}
 bot = telebot.TeleBot(config.token)
 markup_start = types.ReplyKeyboardMarkup()
 markup_start.row('11а','11б','11в')
@@ -29,26 +29,28 @@ date_real = ''
 
 
 
-@bot.message_handler(commands=["start"])
+@bot.message_handler(commands=["/start"])
 def random_messages(message):
     db_worker.add_user_inf(message.from_user.username)
-    bot.send_message(message.chat.id,"Это первая версия бота для 11А",reply_markup=markup_start)
+    bot.send_message(message.chat.id,"Этот бот был создан для получения расписания.Проблемы?",reply_markup=markup_start)
 @bot.message_handler(content_types=["text"])
 def get_raspisanie(message):
     global date
     global date_real
     if message.text=='11а':
-        date_real=fille.get_date()
-        if date_real != date:
-            reslist = botT.get_timetable2()
-            date=reslist[1]
+#        date_real=fille.get_date()
+#        if date_real != date:
+#            reslist = botT.get_timetable2()
+#            date=reslist[1]
+        botT.get_timetable2()
         alfa = botT.get_book('11а')
         bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
     if message.text=='11б':
-        date_real=fille.get_date()
-        if date_real != date:
-            reslist = botT.get_timetable2()
-            date=reslist[1]
+#        date_real=fille.get_date()
+#        if date_real != date:
+#            reslist = botT.get_timetable2()
+#            date=reslist[1]
+        botT.get_timetable2()
         alfa = botT.get_book('11б')
         bot.send_message(message.chat.id,alfa,reply_markup=markup_start)
     if message.text=='11в':

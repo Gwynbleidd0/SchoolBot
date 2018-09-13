@@ -81,7 +81,7 @@ def get_lastfille():
     return(fille)
 #def check_updates():
 
-    
+#print(get_timetable2())    
 """
 print(os.path.getmtime(files[0]))
 i=0
@@ -96,4 +96,5 @@ while i<len(files):
             break;
         f=f+2
 """ 
+
 
