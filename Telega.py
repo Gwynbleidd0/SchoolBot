@@ -28,15 +28,19 @@ date_real = ''
 
 
 
-
+'''
 @bot.message_handler(commands=["/start"])
 def random_messages(message):
     db_worker.add_user_inf(message.from_user.username)
     bot.send_message(message.chat.id,"Этот бот был создан для получения расписания.Проблемы?",reply_markup=markup_start)
+'''
 @bot.message_handler(content_types=["text"])
 def get_raspisanie(message):
     global date
     global date_real
+    if message.text=="/start":
+        db_worker.add_user_inf(message.from_user.username)
+        bot.send_message(message.chat.id,"Этот бот был создан для получения расписания.Проблемы?",reply_markup=markup_start)
     if message.text=='11а':
 #        date_real=fille.get_date()
 #        if date_real != date:
