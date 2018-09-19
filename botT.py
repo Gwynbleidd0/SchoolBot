@@ -29,7 +29,7 @@ def get_timetable2():
     import fille
     t1=False
     res=parcer.get_url()
-    r = requests.get(res[0])
+    r = requests.get(res[-1])
     if r.ok==True:
          with open('base.xls', "wb") as code:
              code.write(r.content)
