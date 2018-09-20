@@ -24,6 +24,8 @@ def get_url():
             result=f.find('1_смена')
             if result!=-1:
                 hg.append(f)
+            else:
+                result=f.find('1смена')
 #    while g<len(f.get('href'):
 #    print(result)
 #    hg.append(f.get('href'))
